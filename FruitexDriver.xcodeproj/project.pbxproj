@@ -22,6 +22,7 @@
 		2528AC4B182997A300722FD9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2528AC2F182997A200722FD9 /* CoreData.framework */; };
 		2528AC53182997A300722FD9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2528AC51182997A300722FD9 /* InfoPlist.strings */; };
 		2528AC55182997A300722FD9 /* FruitexDriverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC54182997A300722FD9 /* FruitexDriverTests.m */; };
+		2528AC6018299AC900722FD9 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2528AC5F18299AC900722FD9 /* iPhoneStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		2528AC50182997A300722FD9 /* FruitexDriverTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FruitexDriverTests-Info.plist"; sourceTree = "<group>"; };
 		2528AC52182997A300722FD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2528AC54182997A300722FD9 /* FruitexDriverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FruitexDriverTests.m; sourceTree = "<group>"; };
+		2528AC5F18299AC900722FD9 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		2528AC31182997A200722FD9 /* FruitexDriver */ = {
 			isa = PBXGroup;
 			children = (
+				2528AC5E18299AA400722FD9 /* Interface */,
 				2528AC3A182997A200722FD9 /* FDAppDelegate.h */,
 				2528AC3B182997A200722FD9 /* FDAppDelegate.m */,
 				2528AC40182997A200722FD9 /* Images.xcassets */,
@@ -151,6 +154,14 @@
 				2528AC51182997A300722FD9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2528AC5E18299AA400722FD9 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				2528AC5F18299AC900722FD9 /* iPhoneStoryboard.storyboard */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +242,7 @@
 			files = (
 				2528AC36182997A200722FD9 /* InfoPlist.strings in Resources */,
 				2528AC41182997A200722FD9 /* Images.xcassets in Resources */,
+				2528AC6018299AC900722FD9 /* iPhoneStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
