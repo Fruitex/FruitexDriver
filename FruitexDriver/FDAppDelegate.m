@@ -7,6 +7,7 @@
 //
 
 #import "FDAppDelegate.h"
+#import "FDLoginViewController.h"
 
 @implementation FDAppDelegate
 
@@ -39,6 +40,11 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    UIViewController *vc = [FDLoginViewController loginViewController];
+    if (vc.presentingViewController == nil) {
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self.window.rootViewController presentViewController:navigationController animated:NO completion:nil];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
