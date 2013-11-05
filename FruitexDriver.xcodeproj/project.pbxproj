@@ -23,6 +23,8 @@
 		2528AC53182997A300722FD9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2528AC51182997A300722FD9 /* InfoPlist.strings */; };
 		2528AC55182997A300722FD9 /* FruitexDriverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC54182997A300722FD9 /* FruitexDriverTests.m */; };
 		2528AC6018299AC900722FD9 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2528AC5F18299AC900722FD9 /* iPhoneStoryboard.storyboard */; };
+		2528AC671829A37300722FD9 /* FDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC661829A37300722FD9 /* FDLoginViewController.m */; };
+		2528AC6B1829A62B00722FD9 /* FDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC6A1829A62B00722FD9 /* FDTextFieldCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		2528AC52182997A300722FD9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2528AC54182997A300722FD9 /* FruitexDriverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FruitexDriverTests.m; sourceTree = "<group>"; };
 		2528AC5F18299AC900722FD9 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
+		2528AC651829A37300722FD9 /* FDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDLoginViewController.h; sourceTree = "<group>"; };
+		2528AC661829A37300722FD9 /* FDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDLoginViewController.m; sourceTree = "<group>"; };
+		2528AC691829A62B00722FD9 /* FDTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDTextFieldCell.h; sourceTree = "<group>"; };
+		2528AC6A1829A62B00722FD9 /* FDTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTextFieldCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 		2528AC31182997A200722FD9 /* FruitexDriver */ = {
 			isa = PBXGroup;
 			children = (
+				2528AC6118299C3300722FD9 /* ViewControllers */,
 				2528AC5E18299AA400722FD9 /* Interface */,
 				2528AC3A182997A200722FD9 /* FDAppDelegate.h */,
 				2528AC3B182997A200722FD9 /* FDAppDelegate.m */,
@@ -162,6 +169,25 @@
 				2528AC5F18299AC900722FD9 /* iPhoneStoryboard.storyboard */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		2528AC6118299C3300722FD9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2528AC681829A5FD00722FD9 /* UIComponents */,
+				2528AC651829A37300722FD9 /* FDLoginViewController.h */,
+				2528AC661829A37300722FD9 /* FDLoginViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2528AC681829A5FD00722FD9 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2528AC691829A62B00722FD9 /* FDTextFieldCell.h */,
+				2528AC6A1829A62B00722FD9 /* FDTextFieldCell.m */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +288,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2528AC3C182997A200722FD9 /* FDAppDelegate.m in Sources */,
+				2528AC6B1829A62B00722FD9 /* FDTextFieldCell.m in Sources */,
 				2528AC38182997A200722FD9 /* main.m in Sources */,
 				2528AC3F182997A200722FD9 /* FruitexDriver.xcdatamodeld in Sources */,
+				2528AC671829A37300722FD9 /* FDLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
