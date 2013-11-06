@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A598" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Delivery" representedClassName="Delivery" syncable="YES">
+        <relationship name="driver" maxCount="1" deletionRule="Nullify" destinationEntity="Driver" inverseName="deliveries" inverseEntity="Driver" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order" inverseName="delivery" inverseEntity="Order" syncable="YES"/>
+        <relationship name="timeFrame" maxCount="1" deletionRule="Nullify" destinationEntity="TimeFrame" inverseName="delivery" inverseEntity="TimeFrame" syncable="YES"/>
+    </entity>
+    <entity name="Driver" representedClassName="Driver" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="deliveries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Delivery" inverseName="driver" inverseEntity="Delivery" syncable="YES"/>
+    </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES">
+        <relationship name="delivery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Delivery" inverseName="orders" inverseEntity="Delivery" syncable="YES"/>
+        <relationship name="orderItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderItem" inverseName="order" inverseEntity="OrderItem" syncable="YES"/>
+    </entity>
+    <entity name="OrderItem" representedClassName="OrderItem" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="orderItems" inverseEntity="Order" syncable="YES"/>
+        <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="orderItems" inverseEntity="Store" syncable="YES"/>
+    </entity>
+    <entity name="Store" representedClassName="Store" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="orderItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderItem" inverseName="store" inverseEntity="OrderItem" syncable="YES"/>
+    </entity>
+    <entity name="TimeFrame" representedClassName="TimeFrame" syncable="YES">
+        <attribute name="end" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="start" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="delivery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Delivery" inverseName="timeFrame" inverseEntity="Delivery" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TimeFrame" positionX="72" positionY="47" width="128" height="88"/>
+        <element name="Driver" positionX="414" positionY="47" width="128" height="88"/>
+        <element name="Delivery" positionX="243" positionY="47" width="128" height="88"/>
+        <element name="Order" positionX="70" positionY="180" width="128" height="73"/>
+        <element name="Store" positionX="414" positionY="158" width="128" height="88"/>
+        <element name="OrderItem" positionX="243" positionY="170" width="128" height="103"/>
+    </elements>
 </model>

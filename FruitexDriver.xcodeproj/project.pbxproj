@@ -26,6 +26,12 @@
 		2528AC671829A37300722FD9 /* FDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC661829A37300722FD9 /* FDLoginViewController.m */; };
 		2528AC6B1829A62B00722FD9 /* FDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC6A1829A62B00722FD9 /* FDTextFieldCell.m */; };
 		2528AC721829B65300722FD9 /* FDDeliverySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC711829B65300722FD9 /* FDDeliverySummaryViewController.m */; };
+		2528AC751829F13000722FD9 /* Delivery.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC741829F13000722FD9 /* Delivery.m */; };
+		2528AC781829F13000722FD9 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC771829F13000722FD9 /* Store.m */; };
+		2528AC7B1829F13000722FD9 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC7A1829F13000722FD9 /* Driver.m */; };
+		2528AC7E1829F13100722FD9 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC7D1829F13100722FD9 /* Order.m */; };
+		2528AC811829F13100722FD9 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC801829F13100722FD9 /* OrderItem.m */; };
+		2528AC841829F13100722FD9 /* TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC831829F13100722FD9 /* TimeFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +70,18 @@
 		2528AC6A1829A62B00722FD9 /* FDTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDTextFieldCell.m; sourceTree = "<group>"; };
 		2528AC701829B65300722FD9 /* FDDeliverySummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDeliverySummaryViewController.h; sourceTree = "<group>"; };
 		2528AC711829B65300722FD9 /* FDDeliverySummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDeliverySummaryViewController.m; sourceTree = "<group>"; };
+		2528AC731829F13000722FD9 /* Delivery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Delivery.h; sourceTree = "<group>"; };
+		2528AC741829F13000722FD9 /* Delivery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Delivery.m; sourceTree = "<group>"; };
+		2528AC761829F13000722FD9 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
+		2528AC771829F13000722FD9 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
+		2528AC791829F13000722FD9 /* Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
+		2528AC7A1829F13000722FD9 /* Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
+		2528AC7C1829F13000722FD9 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		2528AC7D1829F13100722FD9 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		2528AC7F1829F13100722FD9 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
+		2528AC801829F13100722FD9 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
+		2528AC821829F13100722FD9 /* TimeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFrame.h; sourceTree = "<group>"; };
+		2528AC831829F13100722FD9 /* TimeFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +146,7 @@
 			children = (
 				2528AC6118299C3300722FD9 /* ViewControllers */,
 				2528AC5E18299AA400722FD9 /* Interface */,
+				2528AC851829F13A00722FD9 /* Models */,
 				2528AC3A182997A200722FD9 /* FDAppDelegate.h */,
 				2528AC3B182997A200722FD9 /* FDAppDelegate.m */,
 				2528AC40182997A200722FD9 /* Images.xcassets */,
@@ -201,6 +220,25 @@
 				2528AC711829B65300722FD9 /* FDDeliverySummaryViewController.m */,
 			);
 			name = DeliveryVCs;
+			sourceTree = "<group>";
+		};
+		2528AC851829F13A00722FD9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2528AC821829F13100722FD9 /* TimeFrame.h */,
+				2528AC831829F13100722FD9 /* TimeFrame.m */,
+				2528AC7F1829F13100722FD9 /* OrderItem.h */,
+				2528AC801829F13100722FD9 /* OrderItem.m */,
+				2528AC7C1829F13000722FD9 /* Order.h */,
+				2528AC7D1829F13100722FD9 /* Order.m */,
+				2528AC791829F13000722FD9 /* Driver.h */,
+				2528AC7A1829F13000722FD9 /* Driver.m */,
+				2528AC761829F13000722FD9 /* Store.h */,
+				2528AC771829F13000722FD9 /* Store.m */,
+				2528AC731829F13000722FD9 /* Delivery.h */,
+				2528AC741829F13000722FD9 /* Delivery.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,9 +341,15 @@
 				2528AC3C182997A200722FD9 /* FDAppDelegate.m in Sources */,
 				2528AC6B1829A62B00722FD9 /* FDTextFieldCell.m in Sources */,
 				2528AC38182997A200722FD9 /* main.m in Sources */,
+				2528AC751829F13000722FD9 /* Delivery.m in Sources */,
+				2528AC841829F13100722FD9 /* TimeFrame.m in Sources */,
 				2528AC721829B65300722FD9 /* FDDeliverySummaryViewController.m in Sources */,
 				2528AC3F182997A200722FD9 /* FruitexDriver.xcdatamodeld in Sources */,
+				2528AC7E1829F13100722FD9 /* Order.m in Sources */,
 				2528AC671829A37300722FD9 /* FDLoginViewController.m in Sources */,
+				2528AC7B1829F13000722FD9 /* Driver.m in Sources */,
+				2528AC811829F13100722FD9 /* OrderItem.m in Sources */,
+				2528AC781829F13000722FD9 /* Store.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
