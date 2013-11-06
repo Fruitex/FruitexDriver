@@ -32,6 +32,7 @@
 		2528AC7E1829F13100722FD9 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC7D1829F13100722FD9 /* Order.m */; };
 		2528AC811829F13100722FD9 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC801829F13100722FD9 /* OrderItem.m */; };
 		2528AC841829F13100722FD9 /* TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC831829F13100722FD9 /* TimeFrame.m */; };
+		2528AC911829F7BC00722FD9 /* FDSampleDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC901829F7BC00722FD9 /* FDSampleDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,9 @@
 		2528AC801829F13100722FD9 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
 		2528AC821829F13100722FD9 /* TimeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFrame.h; sourceTree = "<group>"; };
 		2528AC831829F13100722FD9 /* TimeFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFrame.m; sourceTree = "<group>"; };
+		2528AC8C1829F4D800722FD9 /* FDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDataManager.h; sourceTree = "<group>"; };
+		2528AC8F1829F7BC00722FD9 /* FDSampleDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDSampleDataManager.h; sourceTree = "<group>"; };
+		2528AC901829F7BC00722FD9 /* FDSampleDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDSampleDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +200,8 @@
 		2528AC6118299C3300722FD9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2528AC6F1829B4AD00722FD9 /* DeliveryVCs */,
 				2528AC681829A5FD00722FD9 /* UIComponents */,
+				2528AC6F1829B4AD00722FD9 /* DeliveryVCs */,
 				2528AC651829A37300722FD9 /* FDLoginViewController.h */,
 				2528AC661829A37300722FD9 /* FDLoginViewController.m */,
 			);
@@ -225,6 +229,25 @@
 		2528AC851829F13A00722FD9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2528AC881829F22A00722FD9 /* ManagedObjects */,
+				2528AC871829F20D00722FD9 /* Managers */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2528AC871829F20D00722FD9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2528AC8C1829F4D800722FD9 /* FDDataManager.h */,
+				2528AC8F1829F7BC00722FD9 /* FDSampleDataManager.h */,
+				2528AC901829F7BC00722FD9 /* FDSampleDataManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		2528AC881829F22A00722FD9 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
 				2528AC821829F13100722FD9 /* TimeFrame.h */,
 				2528AC831829F13100722FD9 /* TimeFrame.m */,
 				2528AC7F1829F13100722FD9 /* OrderItem.h */,
@@ -238,7 +261,7 @@
 				2528AC731829F13000722FD9 /* Delivery.h */,
 				2528AC741829F13000722FD9 /* Delivery.m */,
 			);
-			path = Models;
+			name = ManagedObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +365,7 @@
 				2528AC6B1829A62B00722FD9 /* FDTextFieldCell.m in Sources */,
 				2528AC38182997A200722FD9 /* main.m in Sources */,
 				2528AC751829F13000722FD9 /* Delivery.m in Sources */,
+				2528AC911829F7BC00722FD9 /* FDSampleDataManager.m in Sources */,
 				2528AC841829F13100722FD9 /* TimeFrame.m in Sources */,
 				2528AC721829B65300722FD9 /* FDDeliverySummaryViewController.m in Sources */,
 				2528AC3F182997A200722FD9 /* FruitexDriver.xcdatamodeld in Sources */,
