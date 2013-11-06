@@ -33,6 +33,7 @@
 		2528AC811829F13100722FD9 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC801829F13100722FD9 /* OrderItem.m */; };
 		2528AC841829F13100722FD9 /* TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC831829F13100722FD9 /* TimeFrame.m */; };
 		2528AC911829F7BC00722FD9 /* FDSampleDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC901829F7BC00722FD9 /* FDSampleDataManager.m */; };
+		25BF18EA182AF7DA0021EA5D /* FDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BF18E9182AF7DA0021EA5D /* FDDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,9 +84,10 @@
 		2528AC801829F13100722FD9 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
 		2528AC821829F13100722FD9 /* TimeFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFrame.h; sourceTree = "<group>"; };
 		2528AC831829F13100722FD9 /* TimeFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFrame.m; sourceTree = "<group>"; };
-		2528AC8C1829F4D800722FD9 /* FDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDataManager.h; sourceTree = "<group>"; };
 		2528AC8F1829F7BC00722FD9 /* FDSampleDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDSampleDataManager.h; sourceTree = "<group>"; };
 		2528AC901829F7BC00722FD9 /* FDSampleDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDSampleDataManager.m; sourceTree = "<group>"; };
+		25BF18E8182AF7DA0021EA5D /* FDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDataManager.h; sourceTree = "<group>"; };
+		25BF18E9182AF7DA0021EA5D /* FDDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,7 +240,8 @@
 		2528AC871829F20D00722FD9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				2528AC8C1829F4D800722FD9 /* FDDataManager.h */,
+				25BF18E8182AF7DA0021EA5D /* FDDataManager.h */,
+				25BF18E9182AF7DA0021EA5D /* FDDataManager.m */,
 				2528AC8F1829F7BC00722FD9 /* FDSampleDataManager.h */,
 				2528AC901829F7BC00722FD9 /* FDSampleDataManager.m */,
 			);
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2528AC3C182997A200722FD9 /* FDAppDelegate.m in Sources */,
+				25BF18EA182AF7DA0021EA5D /* FDDataManager.m in Sources */,
 				2528AC6B1829A62B00722FD9 /* FDTextFieldCell.m in Sources */,
 				2528AC38182997A200722FD9 /* main.m in Sources */,
 				2528AC751829F13000722FD9 /* Delivery.m in Sources */,
@@ -574,6 +578,7 @@
 				2528AC5A182997A300722FD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2528AC5B182997A300722FD9 /* Build configuration list for PBXNativeTarget "FruitexDriverTests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +587,7 @@
 				2528AC5D182997A300722FD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

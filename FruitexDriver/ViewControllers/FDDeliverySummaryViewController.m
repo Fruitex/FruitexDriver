@@ -17,7 +17,7 @@ typedef enum {
 
 @interface FDDeliverySummaryViewController ()
 
-@property (nonatomic, strong) id<FDDataManager> dataManager;
+@property (nonatomic, strong) FDDataManager *dataManager;
 
 @end
 
@@ -37,7 +37,11 @@ typedef enum {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Delivery Summary";
-    self.dataManager = [FDSampleDataManager mainSampleDataManager];
+    self.dataManager = [FDSampleDataManager mainDataManager];
+    Delivery *delivery = [self.dataManager deliveryForDriver:nil];
+    NSLog(@"Delivery: %@", delivery);
+    NSLog(@"Driver: %@", delivery.driver.name);
+    NSLog(@"Start: %@ End: %@", delivery.timeFrame.start, delivery.timeFrame.end);
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +61,9 @@ typedef enum {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+//    if (section == SummaryViewOrderSection) {
+//        return 2;
+//    }
     return 0;
 }
 

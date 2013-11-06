@@ -2,7 +2,7 @@
 //  FDDataManager.h
 //  FruitexDriver
 //
-//  Created by Greg on 11/5/2013.
+//  Created by Greg on 11/6/2013.
 //  Copyright (c) 2013 Fruitex. All rights reserved.
 //
 
@@ -13,6 +13,13 @@
 #import "OrderItem.h"
 #import "Store.h"
 
-@protocol FDDataManager <NSObject>
+@interface FDDataManager : NSObject
+
+@property (nonatomic, weak) NSManagedObjectContext *context;
+
++ (FDDataManager *)mainDataManager;
+- (id)initWithContext:(NSManagedObjectContext *)context;
+
+- (Delivery *)deliveryForDriver:(Driver *)driver;
 
 @end

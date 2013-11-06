@@ -8,8 +8,6 @@
 
 #import "FDDataManager.h"
 
-@interface FDSampleDataManager : NSObject <FDDataManager>
-
-+ (FDSampleDataManager *)mainSampleDataManager;
+@interface FDSampleDataManager : FDDataManager
 
 @end
