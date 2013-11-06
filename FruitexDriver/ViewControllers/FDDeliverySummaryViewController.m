@@ -7,6 +7,7 @@
 //
 
 #import "FDDeliverySummaryViewController.h"
+#import "FDSampleDataManager.h"
 
 typedef enum {
     SummaryViewStoreSection = 0,
@@ -15,6 +16,8 @@ typedef enum {
 } SummaryViewSections;
 
 @interface FDDeliverySummaryViewController ()
+
+@property (nonatomic, strong) id<FDDataManager> dataManager;
 
 @end
 
@@ -34,6 +37,7 @@ typedef enum {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Delivery Summary";
+    self.dataManager = [FDSampleDataManager mainSampleDataManager];
 }
 
 - (void)didReceiveMemoryWarning
