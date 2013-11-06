@@ -2,7 +2,7 @@
 //  OrderItem.h
 //  FruitexDriver
 //
-//  Created by Greg on 11/5/2013.
+//  Created by Greg on 11/6/2013.
 //  Copyright (c) 2013 Fruitex. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @interface OrderItem : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * quantity;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * quantity;
 @property (nonatomic, retain) Order *order;
 @property (nonatomic, retain) Store *store;
 

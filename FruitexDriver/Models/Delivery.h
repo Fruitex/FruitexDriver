@@ -2,25 +2,26 @@
 //  Delivery.h
 //  FruitexDriver
 //
-//  Created by Greg on 11/5/2013.
+//  Created by Greg on 11/6/2013.
 //  Copyright (c) 2013 Fruitex. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Driver, Order, TimeFrame;
 
 @interface Delivery : NSManagedObject
 
-@property (nonatomic, retain) NSManagedObject *driver;
-@property (nonatomic, retain) NSManagedObject *timeFrame;
+@property (nonatomic, retain) Driver *driver;
 @property (nonatomic, retain) NSSet *orders;
+@property (nonatomic, retain) TimeFrame *timeFrame;
 @end
 
 @interface Delivery (CoreDataGeneratedAccessors)
 
-- (void)addOrdersObject:(NSManagedObject *)value;
-- (void)removeOrdersObject:(NSManagedObject *)value;
+- (void)addOrdersObject:(Order *)value;
+- (void)removeOrdersObject:(Order *)value;
 - (void)addOrders:(NSSet *)values;
 - (void)removeOrders:(NSSet *)values;
 

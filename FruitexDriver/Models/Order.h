@@ -2,14 +2,14 @@
 //  Order.h
 //  FruitexDriver
 //
-//  Created by Greg on 11/5/2013.
+//  Created by Greg on 11/6/2013.
 //  Copyright (c) 2013 Fruitex. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Delivery;
+@class Delivery, OrderItem;
 
 @interface Order : NSManagedObject
 
@@ -19,8 +19,8 @@
 
 @interface Order (CoreDataGeneratedAccessors)
 
-- (void)addOrderItemsObject:(NSManagedObject *)value;
-- (void)removeOrderItemsObject:(NSManagedObject *)value;
+- (void)addOrderItemsObject:(OrderItem *)value;
+- (void)removeOrderItemsObject:(OrderItem *)value;
 - (void)addOrderItems:(NSSet *)values;
 - (void)removeOrderItems:(NSSet *)values;
 

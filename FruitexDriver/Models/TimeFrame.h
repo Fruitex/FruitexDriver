@@ -2,7 +2,7 @@
 //  TimeFrame.h
 //  FruitexDriver
 //
-//  Created by Greg on 11/5/2013.
+//  Created by Greg on 11/6/2013.
 //  Copyright (c) 2013 Fruitex. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @interface TimeFrame : NSManagedObject
 
-@property (nonatomic, retain) NSDate * start;
 @property (nonatomic, retain) NSDate * end;
+@property (nonatomic, retain) NSDate * start;
 @property (nonatomic, retain) Delivery *delivery;
 
 @end
