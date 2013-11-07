@@ -10,14 +10,12 @@
 #import "FDSampleDataManager.h"
 
 typedef enum {
-    SummaryViewStoreSection = 0,
+    SummaryViewStoreSection,
     SummaryViewOrderSection,
     SummaryViewNumOfSections
 } SummaryViewSections;
 
 @interface FDDeliverySummaryViewController ()
-
-@property (nonatomic, strong) FDDataManager *dataManager;
 
 @end
 
@@ -37,12 +35,15 @@ typedef enum {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Delivery";
-    self.dataManager = [FDSampleDataManager mainDataManager];
-    Delivery *delivery = [self.dataManager deliveryForDriver:nil];
+
+    // Prepare delivery data
+    FDDataManager *dataManager = [FDSampleDataManager mainDataManager];
+    Delivery *delivery = [dataManager deliveryForDriver:nil];
     NSLog(@"Delivery: %@", delivery);
     NSLog(@"Driver: %@", delivery.driver.name);
     NSLog(@"Start: %@ End: %@", delivery.timeFrame.start, delivery.timeFrame.end);
     NSLog(@"Stores: %@", delivery.stores);
+    self.delivery = delivery;
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,14 +63,51 @@ typedef enum {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-//    if (section == SummaryViewOrderSection) {
-//        return 2;
-//    }
+    if (section == SummaryViewStoreSection) {
+        return [self.delivery.stores count];
+    }
+    if (section == SummaryViewOrderSection) {
+        return [self.delivery.orders count];
+    }
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = nil;
+    if (indexPath.section == SummaryViewStoreSection) {
+        static NSString *cellIdentifier = @"storeCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        }
+
+        Store *store = [self.delivery.stores objectAtIndex:indexPath.row];
+        cell.textLabel.text = store.name;
+        cell.detailTextLabel.text = store.address;
+    }
+    if (indexPath.section == SummaryViewOrderSection) {
+        static NSString *cellIdentifier = @"orderCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        }
+
+        Order *order = [self.delivery.orders objectAtIndex:indexPath.row];
+        cell.textLabel.text = order.datePlaced.description;
+        cell.detailTextLabel.text = order.address;
+    }
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == SummaryViewStoreSection) {
+        return @"Stores";
+    }
+    if (section == SummaryViewOrderSection) {
+        return @"Orders";
+    }
     return nil;
 }
 
