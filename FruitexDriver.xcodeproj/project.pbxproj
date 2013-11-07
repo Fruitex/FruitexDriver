@@ -34,6 +34,7 @@
 		2528AC841829F13100722FD9 /* TimeFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC831829F13100722FD9 /* TimeFrame.m */; };
 		2528AC911829F7BC00722FD9 /* FDSampleDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528AC901829F7BC00722FD9 /* FDSampleDataManager.m */; };
 		25BF18EA182AF7DA0021EA5D /* FDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BF18E9182AF7DA0021EA5D /* FDDataManager.m */; };
+		25BF1905182C33C30021EA5D /* FDDeliveryProcurementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BF1904182C33C30021EA5D /* FDDeliveryProcurementViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		2528AC901829F7BC00722FD9 /* FDSampleDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDSampleDataManager.m; sourceTree = "<group>"; };
 		25BF18E8182AF7DA0021EA5D /* FDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDataManager.h; sourceTree = "<group>"; };
 		25BF18E9182AF7DA0021EA5D /* FDDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDataManager.m; sourceTree = "<group>"; };
+		25BF1903182C33C30021EA5D /* FDDeliveryProcurementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDeliveryProcurementViewController.h; sourceTree = "<group>"; };
+		25BF1904182C33C30021EA5D /* FDDeliveryProcurementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDeliveryProcurementViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +227,8 @@
 			children = (
 				2528AC701829B65300722FD9 /* FDDeliverySummaryViewController.h */,
 				2528AC711829B65300722FD9 /* FDDeliverySummaryViewController.m */,
+				25BF1903182C33C30021EA5D /* FDDeliveryProcurementViewController.h */,
+				25BF1904182C33C30021EA5D /* FDDeliveryProcurementViewController.m */,
 			);
 			name = DeliveryVCs;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				2528AC6B1829A62B00722FD9 /* FDTextFieldCell.m in Sources */,
 				2528AC38182997A200722FD9 /* main.m in Sources */,
 				2528AC751829F13000722FD9 /* Delivery.m in Sources */,
+				25BF1905182C33C30021EA5D /* FDDeliveryProcurementViewController.m in Sources */,
 				2528AC911829F7BC00722FD9 /* FDSampleDataManager.m in Sources */,
 				2528AC841829F13100722FD9 /* TimeFrame.m in Sources */,
 				2528AC721829B65300722FD9 /* FDDeliverySummaryViewController.m in Sources */,
