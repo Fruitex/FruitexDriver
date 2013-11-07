@@ -76,10 +76,7 @@ typedef enum {
     UITableViewCell *cell = nil;
     if (indexPath.section == SummaryViewDeliverySection) {
         static NSString *cellIdentifier = @"summaryCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:cellIdentifier];
-        }
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 
         cell.textLabel.text = indexPath.row == 0 ? @"Driver" : @"Time Frame";
         cell.detailTextLabel.text = indexPath.row == 0 ? self.delivery.driver.name : [NSString stringWithFormat:@"%@ ~ %@", self.delivery.timeFrame.start, self
@@ -87,10 +84,7 @@ typedef enum {
     }
     if (indexPath.section == SummaryViewStoreSection) {
         static NSString *cellIdentifier = @"storeCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-        }
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 
         Store *store = [self.delivery.stores objectAtIndex:indexPath.row];
         cell.textLabel.text = store.name;
@@ -98,25 +92,16 @@ typedef enum {
     }
     if (indexPath.section == SummaryViewOrderSection) {
         static NSString *cellIdentifier = @"orderCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-        }
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 
         Order *order = [self.delivery.orders objectAtIndex:indexPath.row];
         cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", order.user, order.datePlaced];
         cell.detailTextLabel.text = order.address;
     }
     if (indexPath.section == SummaryViewActionSection) {
-        static NSString *cellIdentifier = @"actionCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-
+        static NSString *cellIdentifier = @"startCell";
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
         cell.textLabel.text = @"Start Deliver";
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        cell.textLabel.textColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
     }
     return cell;
 }
