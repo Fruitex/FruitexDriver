@@ -56,6 +56,9 @@
     // Add Orders
     Order *orderA = [NSEntityDescription insertNewObjectForEntityForName:@"Order" inManagedObjectContext:self.context];
     orderA.delivery = delivery;
+    orderA.address = @"200 University Ave West, Waterloo";
+    orderA.user = @"Greg";
+    orderA.datePlaced = [NSDate dateWithTimeIntervalSinceNow:-36000];
     OrderItem *appleA = [NSEntityDescription insertNewObjectForEntityForName:@"OrderItem" inManagedObjectContext:self.context];
     appleA.name = @"Apple";
     appleA.quantity = @3;
@@ -69,6 +72,9 @@
 
     Order *orderB = [NSEntityDescription insertNewObjectForEntityForName:@"Order" inManagedObjectContext:self.context];
     orderB.delivery = delivery;
+    orderB.address = @"200 Erb Str West, Waterloo";
+    orderB.user = @"Rui";
+    orderB.datePlaced = [NSDate dateWithTimeIntervalSinceNow:-46000];
     OrderItem *appleB = [NSEntityDescription insertNewObjectForEntityForName:@"OrderItem" inManagedObjectContext:self.context];
     appleB.name = @"Apple";
     appleB.quantity = @2;

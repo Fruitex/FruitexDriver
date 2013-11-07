@@ -13,6 +13,9 @@
 
 @interface Order : NSManagedObject
 
+@property (nonatomic, retain) NSDate * datePlaced;
+@property (nonatomic, retain) NSString * user;
+@property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) Delivery *delivery;
 @property (nonatomic, retain) NSOrderedSet *orderItems;
 @end
