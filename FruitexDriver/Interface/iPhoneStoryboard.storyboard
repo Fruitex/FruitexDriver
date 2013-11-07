@@ -6,35 +6,21 @@
     </dependencies>
     <scenes>
         <!--Delivery Summary View Controller-->
-        <scene sceneID="AaK-FL-jiu">
+        <scene sceneID="xPK-io-xbi">
             <objects>
-                <viewController id="wPq-rB-Ut5" customClass="FDDeliverySummaryViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MRS-3I-HRf"/>
-                        <viewControllerLayoutGuide type="bottom" id="fOR-Jf-Cru"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Rwt-sy-XUf">
+                <tableViewController id="EjC-8C-uqH" customClass="FDDeliverySummaryViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vpr-Aq-Tty">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Syh-Zs-Q7Z">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="wPq-rB-Ut5" id="zz9-us-OPc"/>
-                                    <outlet property="delegate" destination="wPq-rB-Ut5" id="ufo-8E-sv6"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="YTr-KU-Rsb"/>
-                    <connections>
-                        <outlet property="tableView" destination="Syh-Zs-Q7Z" id="fzO-a4-8Y9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zoB-6y-2cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="EjC-8C-uqH" id="emN-4R-Fpl"/>
+                            <outlet property="delegate" destination="EjC-8C-uqH" id="5Ul-eX-raq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Ph7-1N-i0d"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfz-GY-BL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="723" y="-148"/>
         </scene>
@@ -88,7 +74,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wPq-rB-Ut5" kind="relationship" relationship="rootViewController" id="ebf-So-atc"/>
+                        <segue destination="EjC-8C-uqH" kind="relationship" relationship="rootViewController" id="CTX-fj-ISe"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sR9-Np-cCH" userLabel="First Responder" sceneMemberID="firstResponder"/>

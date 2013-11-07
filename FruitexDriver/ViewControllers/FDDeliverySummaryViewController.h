@@ -8,9 +8,7 @@
 
 @class Delivery;
 
-@interface FDDeliverySummaryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@interface FDDeliverySummaryViewController : UITableViewController
 
 @property (nonatomic, strong) Delivery *delivery;
 
