@@ -17,7 +17,7 @@
 
 @property (nonatomic, weak) NSManagedObjectContext *context;
 
-+ (FDDataManager *)mainDataManager;
++ (instancetype)mainDataManager;
 - (id)initWithContext:(NSManagedObjectContext *)context;
 
 - (Delivery *)deliveryForDriver:(Driver *)driver;

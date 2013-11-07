@@ -10,7 +10,7 @@
 
 @implementation FDDataManager
 
-+ (FDDataManager *)mainDataManager
++ (instancetype)mainDataManager
 {
     FDDataManager *manager = nil;
     @synchronized(self) {
