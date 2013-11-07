@@ -65,7 +65,7 @@
     appleA.store = sobeys;
     appleA.order = orderA;
     OrderItem *bookA = [NSEntityDescription insertNewObjectForEntityForName:@"OrderItem" inManagedObjectContext:self.context];
-    bookA.name = @"Book";
+    bookA.name = @"ECON Book";
     bookA.quantity = @1;
     bookA.store = wlu;
     bookA.order = orderA;
@@ -76,12 +76,12 @@
     orderB.user = @"Rui";
     orderB.datePlaced = [NSDate dateWithTimeIntervalSinceNow:-46000];
     OrderItem *appleB = [NSEntityDescription insertNewObjectForEntityForName:@"OrderItem" inManagedObjectContext:self.context];
-    appleB.name = @"Apple";
+    appleB.name = @"Orange";
     appleB.quantity = @2;
     appleB.store = sobeys;
     appleB.order = orderB;
     OrderItem *bookB = [NSEntityDescription insertNewObjectForEntityForName:@"OrderItem" inManagedObjectContext:self.context];
-    bookB.name = @"Book";
+    bookB.name = @"AFM Book";
     bookB.quantity = @1;
     bookB.store = wlu;
     bookB.order = orderB;
