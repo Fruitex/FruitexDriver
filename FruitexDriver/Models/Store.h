@@ -2,7 +2,7 @@
 //  Store.h
 //  FruitexDriver
 //
-//  Created by Greg on 11/6/2013.
+//  Created by Greg on 11/7/2013.
 //  Copyright (c) 2013 Fruitex. All rights reserved.
 //
 
@@ -15,14 +15,19 @@
 
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet *orderItems;
+@property (nonatomic, retain) NSOrderedSet *orderItems;
 @end
 
 @interface Store (CoreDataGeneratedAccessors)
 
+- (void)insertObject:(OrderItem *)value inOrderItemsAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromOrderItemsAtIndex:(NSUInteger)idx;
+- (void)insertOrderItems:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeOrderItemsAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInOrderItemsAtIndex:(NSUInteger)idx withObject:(OrderItem *)value;
+- (void)replaceOrderItemsAtIndexes:(NSIndexSet *)indexes withOrderItems:(NSArray *)values;
 - (void)addOrderItemsObject:(OrderItem *)value;
 - (void)removeOrderItemsObject:(OrderItem *)value;
-- (void)addOrderItems:(NSSet *)values;
-- (void)removeOrderItems:(NSSet *)values;
-
+- (void)addOrderItems:(NSOrderedSet *)values;
+- (void)removeOrderItems:(NSOrderedSet *)values;
 @end

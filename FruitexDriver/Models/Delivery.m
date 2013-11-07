@@ -2,7 +2,7 @@
 //  Delivery.m
 //  FruitexDriver
 //
-//  Created by Greg on 11/6/2013.
+//  Created by Greg on 11/7/2013.
 //  Copyright (c) 2013 Fruitex. All rights reserved.
 //
 
@@ -13,10 +13,6 @@
 
 #import "OrderItem.h"
 
-@interface Delivery ()
-
-@end
-
 @implementation Delivery
 
 @dynamic driver;
@@ -25,10 +21,10 @@
 
 @synthesize stores = _stores;
 
-- (NSSet *)stores
+- (NSOrderedSet *)stores
 {
     if (_stores == nil) {
-        NSMutableSet *stores = [NSMutableSet set];
+        NSMutableOrderedSet *stores = [NSMutableOrderedSet orderedSet];
         for (Order *order in self.orders) {
             for (OrderItem *orderItem in order.orderItems) {
                 [stores addObject:orderItem.store];

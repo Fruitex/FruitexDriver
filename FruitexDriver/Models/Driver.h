@@ -2,7 +2,7 @@
 //  Driver.h
 //  FruitexDriver
 //
-//  Created by Greg on 11/6/2013.
+//  Created by Greg on 11/7/2013.
 //  Copyright (c) 2013 Fruitex. All rights reserved.
 //
 
@@ -15,14 +15,19 @@
 
 @property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet *deliveries;
+@property (nonatomic, retain) NSOrderedSet *deliveries;
 @end
 
 @interface Driver (CoreDataGeneratedAccessors)
 
+- (void)insertObject:(Delivery *)value inDeliveriesAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromDeliveriesAtIndex:(NSUInteger)idx;
+- (void)insertDeliveries:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeDeliveriesAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInDeliveriesAtIndex:(NSUInteger)idx withObject:(Delivery *)value;
+- (void)replaceDeliveriesAtIndexes:(NSIndexSet *)indexes withDeliveries:(NSArray *)values;
 - (void)addDeliveriesObject:(Delivery *)value;
 - (void)removeDeliveriesObject:(Delivery *)value;
-- (void)addDeliveries:(NSSet *)values;
-- (void)removeDeliveries:(NSSet *)values;
-
+- (void)addDeliveries:(NSOrderedSet *)values;
+- (void)removeDeliveries:(NSOrderedSet *)values;
 @end
