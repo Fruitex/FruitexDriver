@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Driver, Order, TimeFrame;
+@class Driver, Order, TimeFrame, Store;
 
 @interface Delivery : NSManagedObject
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) TimeFrame *timeFrame;
 
 @property (nonatomic, readonly, strong) NSOrderedSet *stores;
+- (NSOrderedSet *)orderItemsForStore:(Store *)store;
 @end
 
 @interface Delivery (CoreDataGeneratedAccessors)
