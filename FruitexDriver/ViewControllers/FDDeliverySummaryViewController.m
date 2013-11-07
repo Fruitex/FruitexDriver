@@ -7,6 +7,7 @@
 //
 
 #import "FDDeliverySummaryViewController.h"
+#import "FDDeliveryProcurementViewController.h"
 #import "FDSampleDataManager.h"
 
 typedef enum {
@@ -22,6 +23,15 @@ typedef enum {
 @end
 
 @implementation FDDeliverySummaryViewController
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -122,6 +132,18 @@ typedef enum {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
+}
+
+
+#pragma mark - Navigation
+
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[FDDeliveryProcurementViewController class]]) {
+        FDDeliveryProcurementViewController *vc = segue.destinationViewController;
+        vc.delivery = self.delivery;
+    }
 }
 
 @end

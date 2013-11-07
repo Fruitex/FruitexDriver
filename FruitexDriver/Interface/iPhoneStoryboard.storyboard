@@ -102,6 +102,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="J5m-ov-Zts" kind="push" id="fqf-QG-eho"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -114,6 +117,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfz-GY-BL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="723" y="-148"/>
+        </scene>
+        <!--Delivery Procurement View Controller-->
+        <scene sceneID="xqF-XN-vMr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uSU-tD-B7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="J5m-ov-Zts" customClass="FDDeliveryProcurementViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="H60-Lf-kub">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrderItemCell" editingAccessoryType="checkmark" id="gzs-2J-46R">
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gzs-2J-46R" id="Osq-g3-wde">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="J5m-ov-Zts" id="ez3-X6-jOB"/>
+                            <outlet property="delegate" destination="J5m-ov-Zts" id="ame-nB-YHB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="gul-T7-SNY"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1227" y="-148"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="07x-CV-y1f">
