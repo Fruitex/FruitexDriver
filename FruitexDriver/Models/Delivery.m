@@ -11,11 +11,32 @@
 #import "Order.h"
 #import "TimeFrame.h"
 
+#import "OrderItem.h"
+
+@interface Delivery ()
+
+@end
 
 @implementation Delivery
 
 @dynamic driver;
 @dynamic orders;
 @dynamic timeFrame;
+
+@synthesize stores = _stores;
+
+- (NSSet *)stores
+{
+    if (_stores == nil) {
+        NSMutableSet *stores = [NSMutableSet set];
+        for (Order *order in self.orders) {
+            for (OrderItem *orderItem in order.orderItems) {
+                [stores addObject:orderItem.store];
+            }
+        }
+        _stores = stores;
+    }
+    return _stores;
+}
 
 @end

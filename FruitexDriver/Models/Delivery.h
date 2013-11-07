@@ -16,6 +16,8 @@
 @property (nonatomic, retain) Driver *driver;
 @property (nonatomic, retain) NSSet *orders;
 @property (nonatomic, retain) TimeFrame *timeFrame;
+
+@property (nonatomic, readonly, strong) NSSet *stores;
 @end
 
 @interface Delivery (CoreDataGeneratedAccessors)

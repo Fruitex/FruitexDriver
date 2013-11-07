@@ -36,12 +36,13 @@ typedef enum {
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = @"Delivery Summary";
+    self.title = @"Delivery";
     self.dataManager = [FDSampleDataManager mainDataManager];
     Delivery *delivery = [self.dataManager deliveryForDriver:nil];
     NSLog(@"Delivery: %@", delivery);
     NSLog(@"Driver: %@", delivery.driver.name);
     NSLog(@"Start: %@ End: %@", delivery.timeFrame.start, delivery.timeFrame.end);
+    NSLog(@"Stores: %@", delivery.stores);
 }
 
 - (void)didReceiveMemoryWarning
