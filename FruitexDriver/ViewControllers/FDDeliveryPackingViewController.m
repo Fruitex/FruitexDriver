@@ -7,6 +7,7 @@
 //
 
 #import "FDDeliveryPackingViewController.h"
+#import "FDDeliveryDirectionViewController.h"
 #import "FDDataManager.h"
 
 @interface FDDeliveryPackingViewController ()
@@ -107,6 +108,17 @@
     [tableView cellForRowAtIndexPath:indexPath].accessoryType = accessoryType;
     [self packedOrderItemsDidChange];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Navigation
+
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[FDDeliveryDirectionViewController class]]) {
+        FDDeliveryDirectionViewController *vc = segue.destinationViewController;
+        vc.orders = self.delivery.orders;
+    }
 }
 
 @end
