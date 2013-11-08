@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class Delivery, OrderItem;
 
@@ -18,6 +19,8 @@
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) Delivery *delivery;
 @property (nonatomic, retain) NSOrderedSet *orderItems;
+
+@property (nonatomic, strong) CLLocation *location;
 @end
 
 @interface Order (CoreDataGeneratedAccessors)
@@ -32,4 +35,6 @@
 - (void)removeOrderItemsObject:(OrderItem *)value;
 - (void)addOrderItems:(NSOrderedSet *)values;
 - (void)removeOrderItems:(NSOrderedSet *)values;
+
+- (void)updateLocationWithCompletionHandler:(void (^)(Order *))completionHandler;
 @end
