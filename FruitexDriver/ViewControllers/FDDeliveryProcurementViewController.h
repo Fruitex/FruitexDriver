@@ -10,6 +10,7 @@
 
 @interface FDDeliveryProcurementViewController : UITableViewController
 
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *nextStepButton;
 @property (nonatomic, strong) Delivery *delivery;
 
 @end

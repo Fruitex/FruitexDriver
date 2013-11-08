@@ -33,12 +33,30 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self purchasedOrderItemsDidChange];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - View update
+
+- (void)purchasedOrderItemsDidChange
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.purchased == TRUE"];
+    for (Store *store in self.delivery.stores) {
+        NSOrderedSet *orderItems = [self.delivery orderItemsForStore:store];
+        NSOrderedSet *purchasedOrderItems = [orderItems filteredOrderedSetUsingPredicate:predicate];
+        NSLog(@"%@: %d/%d", store.name, [purchasedOrderItems count], [orderItems count]);
+        if ([purchasedOrderItems count] < [orderItems count]) {
+            self.nextStepButton.enabled = NO;
+            return;
+        }
+    }
+    self.nextStepButton.enabled = YES;
 }
 
 #pragma mark - Table view data source
@@ -63,6 +81,8 @@
     // Configure the cell...
     OrderItem *orderItem = [[self.delivery orderItemsForStore:[self.delivery.stores objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     cell.textLabel.text = orderItem.name;
+    cell.detailTextLabel.text = orderItem.quantity.description;
+    cell.accessoryType = [orderItem.purchased boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 
     return cell;
 }
@@ -76,7 +96,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = [tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+    BOOL wasPurchased = [tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark;
+    OrderItem *orderItem = [[self.delivery orderItemsForStore:[self.delivery.stores objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    [orderItem updatePurchasedTo:!wasPurchased];
+
+    UITableViewCellAccessoryType accessoryType = [orderItem.purchased boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = accessoryType;
+    [self purchasedOrderItemsDidChange];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
