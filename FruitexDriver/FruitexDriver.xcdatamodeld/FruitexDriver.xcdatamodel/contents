@@ -19,6 +19,7 @@
     </entity>
     <entity name="OrderItem" representedClassName="OrderItem" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="packed" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="purchased" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="orderItems" inverseEntity="Order" syncable="YES"/>

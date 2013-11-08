@@ -16,9 +16,11 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * quantity;
 @property (nonatomic, retain) NSNumber * purchased;
+@property (nonatomic, retain) NSNumber * packed;
 @property (nonatomic, retain) Order *order;
 @property (nonatomic, retain) Store *store;
 
 - (BOOL)updatePurchasedTo:(BOOL)purchased;
+- (BOOL)updatePackedTo:(BOOL)packed;
 
 @end
