@@ -75,9 +75,6 @@ typedef enum {
     if (section == SummaryViewOrderSection) {
         return [self.delivery.orders count];
     }
-    if (section == SummaryViewActionSection) {
-        return 1;
-    }
     return 0;
 }
 
@@ -107,11 +104,6 @@ typedef enum {
         Order *order = [self.delivery.orders objectAtIndex:indexPath.row];
         cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", order.user, order.datePlaced];
         cell.detailTextLabel.text = order.address;
-    }
-    if (indexPath.section == SummaryViewActionSection) {
-        static NSString *cellIdentifier = @"startCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-        cell.textLabel.text = @"Start Deliver";
     }
     return cell;
 }

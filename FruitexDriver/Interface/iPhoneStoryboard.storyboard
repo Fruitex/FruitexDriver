@@ -86,33 +86,19 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="startCell" textLabel="wn5-7t-dSD" style="IBUITableViewCellStyleDefault" id="LVD-IB-a84">
-                                <rect key="frame" x="0.0" y="251" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LVD-IB-a84" id="GQj-Ux-BFc">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="START" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wn5-7t-dSD">
-                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="J5m-ov-Zts" kind="push" id="fqf-QG-eho"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="EjC-8C-uqH" id="emN-4R-Fpl"/>
                             <outlet property="delegate" destination="EjC-8C-uqH" id="5Ul-eX-raq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ph7-1N-i0d"/>
+                    <navigationItem key="navigationItem" id="Ph7-1N-i0d">
+                        <barButtonItem key="rightBarButtonItem" title="Start" id="L8Z-DR-pdl">
+                            <connections>
+                                <segue destination="J5m-ov-Zts" kind="push" id="1WH-ia-QtM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfz-GY-BL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
