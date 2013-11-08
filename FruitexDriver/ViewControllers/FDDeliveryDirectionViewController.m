@@ -8,19 +8,11 @@
 
 #import "FDDeliveryDirectionViewController.h"
 #import "FDDataManager.h"
-#import <MapKit/MapKit.h>
-
-@interface OrderDirection : NSObject
-
-@property (nonatomic, strong) Order *order;
-@property (nonatomic) CLLocationCoordinate2D coordinate;
-@property (nonatomic) CLLocationDistance distance;
-
-@end
+#import <ReactiveCocoa.h>
 
 @interface FDDeliveryDirectionViewController ()
 
-@property (nonatomic, strong) NSMutableOrderedSet *directions;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -46,7 +38,17 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     self.title = @"Direction";
-    self.directions = [NSMutableOrderedSet orderedSet];
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        [self.locationManager startUpdatingLocation];
+
+        [self.orders.rac_sequence.signal subscribeNext:^(Order *order) {
+            [order updateLocationWithCompletionHandler:^(Order *order) {
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.orders indexOfObject:order] inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,79 +59,37 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.orders count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"OrderDirectionCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+
+    Order *order = [self.orders objectAtIndex:indexPath.row];
+    cell.textLabel.text = order.address;
+    if (order.location == nil) {
+        UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [activityIndicatorView startAnimating];
+        cell.accessoryView = activityIndicatorView;
+        cell.detailTextLabel.text = nil;
+    } else {
+        cell.accessoryView = nil;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Distance: %fm", [order.location distanceFromLocation:self.locationManager.location]];
+    }
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - Location manager delegate
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    [self.tableView reloadData];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

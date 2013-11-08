@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Fruitex. All rights reserved.
 //
 
-@interface FDDeliveryDirectionViewController : UITableViewController
+#import <CoreLocation/CoreLocation.h>
 
-@property (nonatomic, strong) NSOrderedSet *orders;
+@interface FDDeliveryDirectionViewController : UITableViewController <CLLocationManagerDelegate>
+
+@property (nonatomic, copy) NSOrderedSet *orders;
 
 @end
