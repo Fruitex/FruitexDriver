@@ -8,7 +8,6 @@
 
 #import "FDDeliveryDirectionViewController.h"
 #import "FDDataManager.h"
-#import <ReactiveCocoa.h>
 
 @interface FDDeliveryDirectionViewController ()
 
@@ -44,9 +43,11 @@
         [self.locationManager startUpdatingLocation];
 
         [self.orders.rac_sequence.signal subscribeNext:^(Order *order) {
-            [order updateLocationWithCompletionHandler:^(Order *order) {
+            [RACObserve(order, location) subscribeNext:^(CLLocation *location) {
+                if (location == nil) return;
                 [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.orders indexOfObject:order] inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
             }];
+            [order updateLocation];
         }];
     }
 }

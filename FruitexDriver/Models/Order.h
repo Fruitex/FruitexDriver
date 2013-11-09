@@ -36,5 +36,5 @@
 - (void)addOrderItems:(NSOrderedSet *)values;
 - (void)removeOrderItems:(NSOrderedSet *)values;
 
-- (void)updateLocationWithCompletionHandler:(void (^)(Order *))completionHandler;
+- (void)updateLocation;
 @end

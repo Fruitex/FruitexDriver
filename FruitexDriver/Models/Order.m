@@ -27,7 +27,7 @@
 @synthesize location;
 @synthesize geocoder;
 
-- (void)updateLocationWithCompletionHandler:(void (^)(Order *))completionHandler
+- (void)updateLocation
 {
     if (self.geocoder == nil) {
         self.geocoder = [[CLGeocoder alloc] init];
@@ -45,8 +45,6 @@
         switch ([placemark count]) {
             case 1:
                 self.location = ((CLPlacemark *) [placemark firstObject]).location;
-                NSLog(@"Placemark: %@", self.location);
-                completionHandler(self);
                 break;
             default:
                 NSLog(@"More than one placemark found for address %@", self.address);
