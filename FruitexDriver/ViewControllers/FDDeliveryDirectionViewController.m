@@ -11,7 +11,7 @@
 
 @interface FDDeliveryDirectionViewController ()
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong, readonly) CLLocationManager *locationManager;
 
 @end
 
@@ -37,28 +37,47 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     self.title = @"Direction";
-    if ([CLLocationManager locationServicesEnabled]) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
-        [self.locationManager startUpdatingLocation];
 
-        __block NSInteger orderIndex = 0;
+    __block NSInteger orderIndex = 0;
 
-        [self.orders.rac_sequence.signal subscribeNext:^(Order *order) {
-            NSInteger i = orderIndex++;
-            [RACObserve(order, location) subscribeNext:^(CLLocation *location) {
-                if (location == nil) return;
-                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-            }];
-            [order updateLocation];
+    [self.orders.rac_sequence.signal subscribeNext:^(Order *order) {
+        NSInteger i = orderIndex++;
+        [RACObserve(order, location) subscribeNext:^(CLLocation *location) {
+            if (location == nil) return;
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
         }];
+        [order updateLocation];
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([CLLocationManager locationServicesEnabled]) {
+        [self.locationManager startUpdatingLocation];
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Getter & setter
+
+@synthesize locationManager = _locationManager;
+- (CLLocationManager *)locationManager
+{
+    if (_locationManager == nil) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+    }
+    return _locationManager;
 }
 
 #pragma mark - Table view data source
@@ -80,10 +99,13 @@
         UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [activityIndicatorView startAnimating];
         cell.accessoryView = activityIndicatorView;
-        cell.detailTextLabel.text = nil;
+        cell.detailTextLabel.text = order.address;
+    } else if (self.locationManager.location == nil) {
+        cell.accessoryView = nil;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.4f, %.4f | %@", order.location.coordinate.latitude, order.location.coordinate.longitude, order.address];
     } else {
         cell.accessoryView = nil;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Distance: %fm", [order.location distanceFromLocation:self.locationManager.location]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2fm > %@", [order.location distanceFromLocation:self.locationManager.location], order.address];
     }
     
     return cell;
