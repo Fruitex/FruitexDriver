@@ -224,11 +224,20 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wBU-PH-NFc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="h6y-rp-Ej7" id="h1p-ns-X6y"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="V9j-F8-578"/>
+                    <navigationItem key="navigationItem" id="V9j-F8-578">
+                        <barButtonItem key="rightBarButtonItem" title="Locate Me" id="hB9-mY-RY5">
+                            <connections>
+                                <action selector="startTrackingUser:" destination="h6y-rp-Ej7" id="ORk-4z-Yej"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="wBU-PH-NFc" id="GRX-WV-alb"/>
                     </connections>
