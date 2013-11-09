@@ -53,4 +53,19 @@
     }];
 }
 
+- (CLLocationCoordinate2D)coordinate
+{
+    return self.location.coordinate;
+}
+
+- (NSString *)title
+{
+    return self.address;
+}
+
+- (NSString *)subtitle
+{
+    return self.user;
+}
+
 @end

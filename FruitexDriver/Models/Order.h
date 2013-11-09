@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @class Delivery, OrderItem;
 
-@interface Order : NSManagedObject
+@interface Order : NSManagedObject <MKAnnotation>
 
 @property (nonatomic, retain) NSDate * datePlaced;
 @property (nonatomic, retain) NSString * user;
@@ -21,6 +22,12 @@
 @property (nonatomic, retain) NSOrderedSet *orderItems;
 
 @property (nonatomic, strong) CLLocation *location;
+- (void)updateLocation;
+
+// MKAnnotation
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, readonly, copy) NSString *title;
+@property (nonatomic, readonly, copy) NSString *subtitle;
 @end
 
 @interface Order (CoreDataGeneratedAccessors)
@@ -35,6 +42,4 @@
 - (void)removeOrderItemsObject:(OrderItem *)value;
 - (void)addOrderItems:(NSOrderedSet *)values;
 - (void)removeOrderItems:(NSOrderedSet *)values;
-
-- (void)updateLocation;
 @end
