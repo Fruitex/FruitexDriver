@@ -42,10 +42,13 @@
         self.locationManager.delegate = self;
         [self.locationManager startUpdatingLocation];
 
+        __block NSInteger orderIndex = 0;
+
         [self.orders.rac_sequence.signal subscribeNext:^(Order *order) {
+            NSInteger i = orderIndex++;
             [RACObserve(order, location) subscribeNext:^(CLLocation *location) {
                 if (location == nil) return;
-                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.orders indexOfObject:order] inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
             }];
             [order updateLocation];
         }];
