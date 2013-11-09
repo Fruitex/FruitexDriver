@@ -39,6 +39,7 @@
 		25BF1913182D80480021EA5D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BF1912182D80470021EA5D /* MapKit.framework */; };
 		25BF1916182D843C0021EA5D /* FDDeliveryDirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BF1915182D843C0021EA5D /* FDDeliveryDirectionViewController.m */; };
 		25BF1918182D9B500021EA5D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BF1917182D9B500021EA5D /* CoreLocation.framework */; };
+		25BF191B182E0C210021EA5D /* FDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BF191A182E0C210021EA5D /* FDMapViewController.m */; };
 		C2709709A7F54747BC9AA71C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66738065D99B4A5EB977C023 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,8 @@
 		25BF1914182D843C0021EA5D /* FDDeliveryDirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDeliveryDirectionViewController.h; sourceTree = "<group>"; };
 		25BF1915182D843C0021EA5D /* FDDeliveryDirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDeliveryDirectionViewController.m; sourceTree = "<group>"; };
 		25BF1917182D9B500021EA5D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		25BF1919182E0C210021EA5D /* FDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDMapViewController.h; sourceTree = "<group>"; };
+		25BF191A182E0C210021EA5D /* FDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDMapViewController.m; sourceTree = "<group>"; };
 		45FFCBC717024DA1A0FDD812 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		66738065D99B4A5EB977C023 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -253,6 +256,8 @@
 				25BF190A182C6A100021EA5D /* FDDeliveryPackingViewController.m */,
 				25BF1914182D843C0021EA5D /* FDDeliveryDirectionViewController.h */,
 				25BF1915182D843C0021EA5D /* FDDeliveryDirectionViewController.m */,
+				25BF1919182E0C210021EA5D /* FDMapViewController.h */,
+				25BF191A182E0C210021EA5D /* FDMapViewController.m */,
 			);
 			name = DeliveryVCs;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2528AC3C182997A200722FD9 /* FDAppDelegate.m in Sources */,
+				25BF191B182E0C210021EA5D /* FDMapViewController.m in Sources */,
 				25BF18EA182AF7DA0021EA5D /* FDDataManager.m in Sources */,
 				25BF190B182C6A100021EA5D /* FDDeliveryPackingViewController.m in Sources */,
 				2528AC6B1829A62B00722FD9 /* FDTextFieldCell.m in Sources */,
