@@ -66,7 +66,7 @@
     MKPlacemark* place = [[MKPlacemark alloc] initWithCoordinate:order.location.coordinate addressDictionary: nil];
     MKMapItem* destination = [[MKMapItem alloc] initWithPlacemark: place];
     destination.name = order.user;
-    [MKMapItem openMapsWithItems:@[destination] launchOptions:nil];
+    [MKMapItem openMapsWithItems:@[destination] launchOptions:@{MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving}];
 }
 
 #pragma mark - Actions
