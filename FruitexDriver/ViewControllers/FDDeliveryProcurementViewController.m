@@ -53,7 +53,7 @@
     for (Store *store in self.delivery.stores) {
         NSOrderedSet *orderItems = [self.delivery orderItemsForStore:store];
         NSOrderedSet *purchasedOrderItems = [orderItems filteredOrderedSetUsingPredicate:predicate];
-        NSLog(@"%@: %d/%d", store.name, [purchasedOrderItems count], [orderItems count]);
+        NSLog(@"%@: %lu/%lu", store.name, (unsigned long)[purchasedOrderItems count], (unsigned long)[orderItems count]);
         if ([purchasedOrderItems count] < [orderItems count]) {
             self.nextStepButton.enabled = NO;
             return;
