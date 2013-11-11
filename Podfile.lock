@@ -1,4 +1,5 @@
 PODS:
+  - NSMoment (0.1.0)
   - ReactiveCocoa (2.1.6):
     - ReactiveCocoa/Core
     - ReactiveCocoa/no-arc
@@ -7,9 +8,11 @@ PODS:
   - ReactiveCocoa/no-arc (2.1.6)
 
 DEPENDENCIES:
+  - NSMoment (~> 0.1.0)
   - ReactiveCocoa (~> 2.1.6)
 
 SPEC CHECKSUMS:
+  NSMoment: d3e07c637ecd4bf8c0311e8f3e5f654d3b6f76fc
   ReactiveCocoa: 63b3bae2d4008b897eb982042dfbc379f6d04a2e
 
 COCOAPODS: 0.27.1
