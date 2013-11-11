@@ -332,7 +332,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="1ES-gP-1n2"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabIcon" id="1ES-gP-1n2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dZ-8r-pTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -342,7 +342,7 @@
         <scene sceneID="Gri-jm-XB6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jd6-02-GVl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Delivery" id="4ZR-Qg-Kek"/>
+                    <tabBarItem key="tabBarItem" title="Delivery" image="DeliveryTabIcon" id="4ZR-Qg-Kek"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kOm-uk-i1c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -358,6 +358,10 @@
             <point key="canvasLocation" x="197" y="-148"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DeliveryTabIcon" width="25" height="25"/>
+        <image name="ProfileTabIcon" width="25" height="25"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
