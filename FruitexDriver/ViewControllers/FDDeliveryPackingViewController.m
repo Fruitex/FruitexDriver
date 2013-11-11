@@ -10,6 +10,8 @@
 #import "FDDeliveryDirectionViewController.h"
 #import "FDDataManager.h"
 
+#import <NSMoment.h>
+
 @interface FDDeliveryPackingViewController ()
 
 @end
@@ -93,7 +95,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     Order *order = [self.delivery.orders objectAtIndex:section];
-    return [NSString stringWithFormat:@"%@ @ %@", order.user, order.datePlaced];
+    return [NSString stringWithFormat:@"%@ @ %@", order.user, [[NSMoment momentWithDate:order.datePlaced] format:@"MMM dd yyyy, hh:mm"]];
 }
 
 #pragma mark - Table view delegate

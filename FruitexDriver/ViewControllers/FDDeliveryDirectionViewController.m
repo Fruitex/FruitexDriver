@@ -10,6 +10,8 @@
 #import "FDMapViewController.h"
 #import "FDDataManager.h"
 
+#import <NSMoment.h>
+
 @interface FDDeliveryDirectionViewController ()
 
 @property (nonatomic, strong, readonly) CLLocationManager *locationManager;
@@ -49,6 +51,8 @@
         }];
         [order updateLocation];
     }];
+
+//    self.editing = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -95,7 +99,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
     Order *order = [self.orders objectAtIndex:indexPath.row];
-    cell.textLabel.text = order.address;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", order.user, [[NSMoment momentWithDate:order.datePlaced] format:@"MMM dd yyyy, hh:mm"]];
     if (order.location == nil) {
         UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [activityIndicatorView startAnimating];
@@ -108,8 +112,19 @@
         cell.accessoryView = nil;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2fm > %@", [order.location distanceFromLocation:self.locationManager.location], order.address];
     }
+    cell.showsReorderControl = YES;
     
     return cell;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleNone;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+
 }
 
 #pragma mark - Location manager delegate

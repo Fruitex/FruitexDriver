@@ -10,6 +10,8 @@
 #import "FDDeliveryProcurementViewController.h"
 #import "FDSampleDataManager.h"
 
+#import <NSMoment.h>
+
 typedef enum {
     SummaryViewDeliverySection,
     SummaryViewStoreSection,
@@ -86,8 +88,7 @@ typedef enum {
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 
         cell.textLabel.text = indexPath.row == 0 ? @"Driver" : @"Time Frame";
-        cell.detailTextLabel.text = indexPath.row == 0 ? self.delivery.driver.name : [NSString stringWithFormat:@"%@ ~ %@", self.delivery.timeFrame.start, self
-                                                                                .delivery.timeFrame.end];
+        cell.detailTextLabel.text = indexPath.row == 0 ? self.delivery.driver.name : [NSString stringWithFormat:@"%@ ~ %@", [[NSMoment momentWithDate:self.delivery.timeFrame.start] format:@"MMM dd, hh:mm"], [[NSMoment momentWithDate:self.delivery.timeFrame.end] format:@"hh:mm"]];
     }
     if (indexPath.section == SummaryViewStoreSection) {
         static NSString *cellIdentifier = @"storeCell";
@@ -102,7 +103,7 @@ typedef enum {
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 
         Order *order = [self.delivery.orders objectAtIndex:indexPath.row];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", order.user, order.datePlaced];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ @ %@", order.user, [[NSMoment momentWithDate:order.datePlaced] format:@"MMM dd yyyy, hh:mm"]];
         cell.detailTextLabel.text = order.address;
     }
     return cell;
